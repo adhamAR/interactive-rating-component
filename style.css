@@ -1,57 +1,182 @@
 @import url('https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap');
 
 :root {
-    --White: hsl(0, 0%, 100%);
-    --Light-Grey: hsl(217, 12%, 63%);
-    --Medium-Grey: hsl(216, 12%, 54%);
-    --Dark-Blue: hsl(213, 19%, 18%);
-    --Very-Dark-Blue: hsl(216, 12%, 8%);
+    --clr-primary-500: hsl(25, 97%, 53%);
+
+    --clr-neutral-100: hsl(0, 0%, 100%);
+    --clr-neutral-200: hsl(217, 12%, 63%);
+    --clr-neutral-300: hsl(216, 12%, 54%);
+    --clr-neutral-600: hsl(213, 19%, 21%);
+    --clr-neutral-700: hsl(213, 19%, 18%);
+    --clr-neutral-800: hsl(213, 19%, 13%);
+    --clr-neutral-900: hsl(216, 12%, 8%);
+
+    --ff-base: 'Overpass', sans-serif;
+
+    --fw-regular: 400;
+    --fw-bold: 700;
 }
+
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  /*
+    2. Remove default margin
+  */
+  * {
+    margin: 0;
+  }
+  /*
+    3. Allow percentage-based heights in the application
+  */
+  html, body {
+    height: 100%;
+  }
+  /*
+    Typographic tweaks!
+    4. Add accessible line-height
+    5. Improve text rendering
+  */
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  /*
+    6. Improve media defaults
+  */
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  /*
+    7. Remove built-in form typography styles
+  */
+  input, button, textarea, select {
+    font: inherit;
+  }
+  /*
+    8. Avoid text overflows
+  */
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+  h1, h2, h3{
+    color: var(--clr-neutral-100);
+  }
 
 .attribution {
     font-size: 11px;
     text-align: center;
+    color: var(--clr-neutral-300);
+    margin-block-start: 2rem;
 }
 
 .attribution a {
     color: hsl(228, 45%, 44%);
 }
-
+/* general styling */
 * {
     font-family: 'Overpass', sans-serif;
 }
 
 body {
-    background-color: var(--Very-Dark-Blue);
+    background-color: var(--clr-neutral-900);
+    display: grid;
+    place-content: center;
+    margin: 1rem;
+    color: var(--clr-neutral-300);
+    font-size: 0.938rem;
 }
 
-.card-header>h1 {
-    color: var(--White);
-}
-
-.card-body>p {
-    color: var(--Medium-Grey);
-}
-
-ul {
-    list-style-type: none;
+/* utilities */
+.flex-group{
     display: flex;
+    gap: 1.4rem;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-button {
-    color: var(--White);
-    background-color: var(--Dark-Blue);
-    border-radius: 50rem;
-    width: 50px;
-    height: 50px;
+/* buttons */
+button{
+    cursor: pointer;
+}
+.flex-group > button{
+    border: 0;
+    width: 2.6rem;
+    height: 2.6rem;
+    border-radius: 50%;
+    color: var(--clr-neutral-400);
+    background-color: var(--clr-neutral-700);
+}
+.flex-group > button:hover{
+    background-color: var(--clr-primary-500);
+    color: var(--clr-neutral-100);
 }
 
-.rate-container a {
-    color: var(--White);
-    background-color: var(--Dark-Blue);
+.flex-group > button:focus{
+    background-color: var(--clr-neutral-300);
+    color: var(--clr-neutral-100);
+}
 
-    border-radius: 50rem;
-    width: 50px;
-    height: 50px;
-    text-decoration: none;
+.card__footer > button{
+    width: 100%;
+    border: 0;
+    border-radius: 2rem;
+    color: var(--clr-neutral-100);
+    background-color: var(--clr-primary-500);
+    padding: 0.7rem 1.5rem;
+    font-weight: var(--fw-bold);
+    letter-spacing: 2px;
+}
+.card__footer > button:is(:hover){
+    background-color: var(--clr-neutral-100);
+    color: var(--clr-primary-500);
+}
+
+/* card styling */
+.card{
+    --card-padding: 1.4rem; 
+    --card-gap: 1rem;
+    background-image: linear-gradient(to top, var(--clr-neutral-800), var(--clr-neutral-700));
+    border-radius: 1rem;
+    overflow: hidden;
+    padding: var(--card-padding);
+    max-width: 400px;
+}
+
+/* card__before styling */
+.card__before{
+    display: grid;
+    gap: var(--card-gap);
+}
+
+.card__header{ 
+    background-color: var(--clr-neutral-600);
+    width: 17px;
+    height: 16px;
+    display: grid;
+    justify-items: center;
+    align-content: center;
+    border-radius: 50%;
+    padding: var(--card-padding)
+}
+
+/* card__after styling */
+.card__after{
+    margin-block: 1rem;
+    display: none;
+    justify-items: center;
+    text-align: center;
+    gap: 0.5rem
+}
+.rating-msg{
+    margin-block: 1.5rem;
+    background-color: var(--clr-neutral-600);
+    color: var(--clr-primary-500);
+    padding: 0.3rem 1.5rem;
+    border-radius: 2rem;
+    text-align: center;
 }
