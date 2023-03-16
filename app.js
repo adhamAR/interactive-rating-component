@@ -8,7 +8,6 @@ function showRate() {
   rates.forEach((rate, index) => {
     rate.onclick = () => {
       let selectedRate = index + 1;
-      console.log('You selected ' + selectedRate);
       submit.onclick = () => {
         msg.innerHTML = `You selected ${selectedRate} out of 5`;
         beforeRate.style.display = "none";
