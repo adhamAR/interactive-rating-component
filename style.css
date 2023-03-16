@@ -97,6 +97,7 @@ body {
     gap: 1.4rem;
     flex-wrap: wrap;
     justify-content: center;
+    margin-block: 1rem;
 }
 
 /* buttons */
@@ -145,6 +146,7 @@ button{
     overflow: hidden;
     padding: var(--card-padding);
     max-width: 400px;
+    min-height: 24.5rem;
 }
 
 /* card__before styling */
