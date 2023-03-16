@@ -1,5 +1,5 @@
 const submit = document.querySelector(".submit");
-const rates = document.querySelectorAll("#rating");
+const rates = document.querySelectorAll(".rating");
 const beforeRate = document.querySelector(".card__before");
 const afterRate = document.querySelector(".card__after");
 const msg = document.querySelector(".rating-msg");
